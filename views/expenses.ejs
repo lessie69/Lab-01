@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <% include partials/head %> 
+</head>
+<body>
+<% include partials/menu %>
+<h1><%= page %></h1>
+<p>Hello, there. These are your expenses:</p>
+<table border="1">
+  <tr>
+    <% Object.keys(expenses[0]).forEach(k => { %>
+      <th><strong><%= k %></strong></th>
+    <% }) %>
+  </tr>
+  <% expenses.forEach(expense => { %>
+    <tr>
+      <% Object.keys(expense).forEach(k => { %>
+        <td><%= expense[k] %></td>
+      <% }) %>
+    </tr>
+  <% }) %>
+</table>
+<p>Don't spend too much.</p>
+</body>
+<% include partials/script %>
+</html>
